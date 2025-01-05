@@ -1,13 +1,24 @@
 <main>
-  <section>
-    <div id="form">
-      <form>
-        <label for="jobPosition">Position</label>
-        <input type="text" id="jobPosition" name="jobPosition">
-        <label for="companyName">Company Name</label>
-        <input type="text" id="companyName" name="companyName">
-        <button>Submit</button>
-      </form>
-    </div>
-  </section>
+  <form method="post" action="/sent">
+    <h1>Job Application</h1>
+    <label for="jobPosition">Position</label>
+    <input
+      type="text"
+      id="jobPosition"
+      name="jobPosition"
+      placeholder="e.g., Software Engineer"
+      required
+    >
+
+    <label for="companyName">Company Name</label>
+    <input
+      type="text"
+      id="companyName"
+      name="companyName"
+      placeholder="e.g., Acme Corp"
+      required
+    >
+
+    <button type="submit">Submit</button>
+  </form>
 </main>
