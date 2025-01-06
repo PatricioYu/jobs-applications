@@ -68,7 +68,7 @@ public class ApiApplication {
 	 * Prints the names and majors of students in a sample spreadsheet:
 	 * https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
 	 */
-	public static void main(String... args) throws IOException, GeneralSecurityException {
+	public static void main(String[] args) throws IOException, GeneralSecurityException {
 		// Build a new authorized API client service.
 		final NetHttpTransport HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
 		final String spreadsheetId = "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms";
@@ -90,5 +90,7 @@ public class ApiApplication {
 				System.out.printf("%s, %s\n", row.get(0), row.get(4));
 			}
 		}
+
+		SpringApplication.run(ApiApplication.class, args);
 	}
 }
