@@ -65,8 +65,7 @@ public class ApiApplication {
 	}
 
 	/**
-	 * Prints the names and majors of students in a sample spreadsheet:
-	 * https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
+	 * Prints the names and majors of students in a sample spreadsheet
 	 */
 	public static void main(String[] args) throws IOException, GeneralSecurityException {
 		// Build a new authorized API client service.
