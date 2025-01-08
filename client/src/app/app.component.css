@@ -47,14 +47,23 @@ input {
   padding: 0.75rem;
   border: 1px solid #ddd;
   border-radius: 5px;
-  font-size: 1rem;
   margin-bottom: 1rem;
+  font-size: 1rem;
   transition: border-color 0.3s;
 }
 
 input:focus {
   border-color: #007bff;
   outline: none;
+}
+
+input.ng-invalid.ng-touched {
+  margin-bottom: 0;
+}
+
+.div-error-text {
+  color: orangered;
+  margin-bottom: 1rem;
 }
 
 /* Button styling */
@@ -73,6 +82,11 @@ button {
 button:hover {
   background-color: #0056b3;
   transform: scale(1.02);
+}
+
+button:disabled:hover {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 /* Responsive design */

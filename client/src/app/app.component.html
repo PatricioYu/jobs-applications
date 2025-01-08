@@ -1,23 +1,19 @@
 <main>
-  <form method="post" action="http://localhost:8080/sent">
+  <form [formGroup]="jobApplicationForm" (ngSubmit)="onSubmit()">
     <h1>Job Application</h1>
-    <label for="companyName">Company Name</label>
-    <input
-      type="text"
-      id="companyName"
-      name="companyName"
-      placeholder="e.g., Acme Corp"
-      required
-    >
-    <label for="jobPosition">Position</label>
-    <input
-      type="text"
-      id="jobPosition"
-      name="jobPosition"
-      placeholder="e.g., Software Engineer"
-      required
-    >
 
-    <button type="submit">Submit</button>
+    <label for="companyName">Company Name</label>
+    <input id="companyName" type="text" formControlName="companyName">
+    @if(jobApplicationForm.controls["companyName"].errors?.["required"] && jobApplicationForm.controls["companyName"].touched) {
+      <div class="div-error-text">This is required</div>
+    }
+
+    <label for="jobPosition">Position</label>
+    <input id="jobPosition" type="text" formControlName="jobPosition">
+    @if(jobApplicationForm.controls["jobPosition"].errors?.["required"] && jobApplicationForm.controls["jobPosition"].touched) {
+      <div class="div-error-text">This is required</div>
+    }
+
+    <button type="submit" [disabled]="jobApplicationForm.controls['companyName'].invalid || jobApplicationForm.controls['jobPosition'].invalid">Submit</button>
   </form>
 </main>
