@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { JobApplicationService } from './services/job-application.service';
+import { JobApplication } from './interfaces/job-application';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +10,8 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  constructor(private service: JobApplicationService) {}
+
   jobApplicationForm: FormGroup = new FormGroup({
     date: new FormControl(new Date().toLocaleDateString()),
     companyName: new FormControl("", [Validators.required]),
@@ -15,7 +19,15 @@ export class AppComponent {
   })
 
   onSubmit() {
-    const formValue: FormGroup = this.jobApplicationForm.value;
-    console.log(formValue)
+    const formValue: JobApplication = this.jobApplicationForm.value;
+
+    this.service.postJobApplication(formValue).subscribe({
+      next: (res) => {
+        console.log('Application submitted successfully!', res);
+      },
+      error: (err) => {
+        console.error('Error submitting application:', err);
+      }
+    })
   }
 }
