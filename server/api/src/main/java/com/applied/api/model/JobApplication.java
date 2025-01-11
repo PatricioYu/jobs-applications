@@ -8,7 +8,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 public class JobApplication {
-    private LocalDate dateOfApplication;
+    private String date;
     private String companyName;
     private String jobPosition;
 }

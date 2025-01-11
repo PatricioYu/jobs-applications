@@ -10,8 +10,11 @@ public class Controller {
         return "hello world!";
     }
 
+    @CrossOrigin
     @PostMapping (path = "/sent")
-    public void postApplication(@RequestParam String companyName, @RequestParam String jobPosition) {
-        System.out.println(companyName + jobPosition);
+    public void postApplication(@RequestBody JobApplication jobApplication) {
+        System.out.println("Company Name: " + jobApplication.getCompanyName());
+        System.out.println("Job Position: " + jobApplication.getJobPosition());
+        System.out.println("Date: " + jobApplication.getDate());
     }
 }
