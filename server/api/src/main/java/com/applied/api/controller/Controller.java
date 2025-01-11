@@ -10,7 +10,7 @@ public class Controller {
         return "hello world!";
     }
 
-    @CrossOrigin
+    @CrossOrigin (origins = "http://localhost:4200")
     @PostMapping (path = "/sent")
     public void postApplication(@RequestBody JobApplication jobApplication) {
         System.out.println("Company Name: " + jobApplication.getCompanyName());
