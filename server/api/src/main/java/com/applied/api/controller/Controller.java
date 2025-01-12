@@ -11,7 +11,7 @@ public class Controller {
     }
 
     @CrossOrigin (origins = "http://localhost:4200")
-    @PostMapping (path = "/sent")
+    @PostMapping (path = "/job-applications")
     public void postApplication(@RequestBody JobApplication jobApplication) {
         System.out.println("Company Name: " + jobApplication.getCompanyName());
         System.out.println("Job Position: " + jobApplication.getJobPosition());
